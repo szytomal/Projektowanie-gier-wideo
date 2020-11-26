@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Piłka.gd" type="Script" id=1]
+[ext_resource path="res://Stół.gd" type="Script" id=2]
+[ext_resource path="res://Gracz.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Przeciwnik.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Piłka.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 869.535, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 853.307, 15.0699 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23.9844, 370.24 )
+
+[node name="Stol" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Kolor stołu" type="ColorRect" parent="."]
+margin_right = 1503.0
+margin_bottom = 747.0
+color = Color( 0.121569, 0.113725, 0.113725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gracz (paletka)" parent="." instance=ExtResource( 3 )]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -0.777946, 1.5874 )
+
+[node name="Ściana górna" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 737.191, -11.7292 )
+shape = SubResource( 1 )
+
+[node name="Ściana dolna" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 745, 760 )
+shape = SubResource( 2 )
+
+[node name="Przeciwnik" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1400, 300 )
+
+[node name="Pilka1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 743.257, 328.426 )
+script = ExtResource( 1 )
+
+[node name="Ściana lewa" type="Area2D" parent="."]
+position = Vector2( 72.0435, -31.7839 )
+
+[node name="Ściana lewa" type="CollisionShape2D" parent="Ściana lewa"]
+position = Vector2( -94.0164, 405.804 )
+shape = SubResource( 3 )
+
+[node name="Ściana prawa" type="Area2D" parent="."]
+position = Vector2( 1620.43, -33.5657 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ściana prawa" type="CollisionShape2D" parent="Ściana prawa"]
+position = Vector2( -94.0164, 405.804 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Ściana lewa" to="." method="_on_ciana_lewa_body_entered"]
+[connection signal="body_entered" from="Ściana prawa" to="." method="_on_ciana_prawa_body_entered"]
