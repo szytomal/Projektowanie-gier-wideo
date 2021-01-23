@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Przycisk/wiekszamniejsza.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Przycisk/Witamy w grze.gd" type="Script" id=2]
+[ext_resource path="res://Przycisk/yos.jpg" type="Texture" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 7.07104
+margin_right = -6.0
+margin_bottom = -5.92896
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer"]
+margin_top = 638.0
+margin_right = 634.0
+margin_bottom = 662.0
+
+[node name="Przechowalnia" type="SpinBox" parent="."]
+margin_left = 228.844
+margin_top = -99.5895
+margin_right = 302.844
+margin_bottom = -75.5895
+
+[node name="papiezowaprzechowalnia" type="SpinBox" parent="."]
+margin_left = 385.645
+margin_top = -100.242
+margin_right = 459.645
+margin_bottom = -76.2418
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="papiezowaprzechowalnia2" type="SpinBox" parent="."]
+margin_left = 112.303
+margin_top = -105.946
+margin_right = 186.303
+margin_bottom = -81.9463
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 429.0
+margin_right = 642.0
+margin_bottom = 585.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+percent_visible = -0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 320.131, 319.166 )
+scale = Vector2( 0.850653, 0.478483 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="zycia" type="SpinBox" parent="."]
+margin_left = 261.127
+margin_top = 51.5905
+margin_right = 335.127
+margin_bottom = 75.5905
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 151.629
+margin_top = -2.89034
+margin_right = 449.629
+margin_bottom = 70.1097
+custom_fonts/font = ExtResource( 1 )
+text = "Imlość żymć"
+[connection signal="value_changed" from="VBoxContainer/SpinBox" to="." method="_on_SpinBox_value_changed"]

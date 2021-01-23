@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/brawo_brawo_brawissimo_2245838476526628354.ogg-1e3b3c2c2a467667c2955eba2096a708.oggstr"
+
+[deps]
+
+source_file="res://Przycisk/brawo_brawo_brawissimo_2245838476526628354.ogg"
+dest_files=[ "res://.import/brawo_brawo_brawissimo_2245838476526628354.ogg-1e3b3c2c2a467667c2955eba2096a708.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

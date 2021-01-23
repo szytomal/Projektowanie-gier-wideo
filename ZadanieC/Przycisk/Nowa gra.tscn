@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Przycisk/Nowa gra.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Przycisk/Nowa gra.gd" type="Script" id=2]
+
+[node name="Nowa gra" type="Button"]
+anchor_right = 1.006
+anchor_bottom = 1.004
+margin_left = -1.78186
+margin_top = -1.7818
+margin_right = -1.46191
+margin_bottom = -1.66187
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene_to_load = "res://przycisk/Witamy w grze.tscn"
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 2.373
+anchor_bottom = 5.191
+margin_left = -91.8168
+margin_top = 4.00227
+margin_right = -740.408
+margin_bottom = -3321.56
+custom_fonts/font = ExtResource( 1 )
+text = "Zamgraj"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,52 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://gif/Patron_page_0002.jpg" type="Texture" id=1]
+[ext_resource path="res://gif/Patron_page_0003.jpg" type="Texture" id=2]
+[ext_resource path="res://gif/Patron_page_0004.jpg" type="Texture" id=3]
+[ext_resource path="res://gif/Patron_page_0007.jpg" type="Texture" id=4]
+[ext_resource path="res://gif/Patron_page_0001.jpg" type="Texture" id=5]
+[ext_resource path="res://gif/Patron_page_0006.jpg" type="Texture" id=6]
+[ext_resource path="res://gif/Patron_page_0005.jpg" type="Texture" id=7]
+[ext_resource path="res://Przycisk/unnamed.png" type="Texture" id=8]
+[ext_resource path="res://Przycisk/Papiez.gd" type="Script" id=9]
+[ext_resource path="res://Przycisk/spooky_blanket_plebania_2k16_dance_remix_6682453414928542553.ogg" type="AudioStream" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 318.942, 334.087 )
+scale = Vector2( 1.76221, 1.47911 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 284.543
+margin_top = -47.4539
+margin_right = 808.543
+margin_bottom = 298.546
+icon = ExtResource( 8 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 1.0
+autoplay = true
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
