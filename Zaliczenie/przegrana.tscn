@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://przegrana.gd" type="Script" id=2]
+[ext_resource path="res://Assets/menu - tło.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+margin_right = 1500.0
+margin_bottom = 746.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 175.179
+margin_top = 213.588
+margin_right = 1312.18
+margin_bottom = 497.588
+custom_fonts/font = SubResource( 1 )
+text = "niestety
+ nie udało Ci się wygrać"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 532.351
+margin_top = 456.351
+margin_right = 996.351
+margin_bottom = 550.351
+custom_fonts/font = SubResource( 2 )
+text = "Powrót do menu"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 420.91
+margin_top = 277.227
+margin_right = 643.91
+margin_bottom = 380.227
+custom_fonts/font = SubResource( 3 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 752.85, 376.425 )
+scale = Vector2( 0.310155, 0.255085 )
+texture = ExtResource( 3 )
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/ping_pong_8bit_plop.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Stół.gd" type="Script" id=2]
+[ext_resource path="res://Gracz.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Przeciwnik.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Piłka.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 869.535, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 853.307, 15.0699 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 23.9844, 370.24 )
+
+[node name="Stol" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Kolor stołu" type="ColorRect" parent="."]
+margin_top = -1.0
+margin_right = 1503.0
+margin_bottom = 746.0
+color = Color( 0.121569, 0.113725, 0.113725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 635.53
+margin_top = 297.0
+margin_right = 733.53
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WynikGracza" type="Label" parent="."]
+anchor_right = 0.027
+anchor_bottom = 0.045
+margin_left = 641.0
+margin_top = 338.0
+margin_right = 659.5
+margin_bottom = 338.25
+custom_fonts/font = SubResource( 2 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 788.46
+margin_top = 297.0
+margin_right = 886.46
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 3 )
+text = "CPU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WynikPrzeciwnika" type="Label" parent="."]
+margin_left = 800.0
+margin_top = 338.0
+margin_right = 859.0
+margin_bottom = 372.0
+custom_fonts/font = SubResource( 4 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gracz (paletka)" parent="." instance=ExtResource( 3 )]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -0.777946, 1.5874 )
+
+[node name="Ściana górna" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 737.191, -11.7292 )
+shape = SubResource( 5 )
+
+[node name="Ściana dolna" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 745, 760 )
+shape = SubResource( 6 )
+
+[node name="Przeciwnik" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1400, 300 )
+
+[node name="Pilka1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 743.257, 328.426 )
+
+[node name="Ściana lewa" type="Area2D" parent="."]
+position = Vector2( 72.0435, -31.7839 )
+
+[node name="Ściana lewa" type="CollisionShape2D" parent="Ściana lewa"]
+position = Vector2( -94.0164, 405.804 )
+shape = SubResource( 7 )
+
+[node name="Ściana prawa" type="Area2D" parent="."]
+position = Vector2( 1620.43, -33.5657 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ściana prawa" type="CollisionShape2D" parent="Ściana prawa"]
+position = Vector2( -94.0164, 405.804 )
+shape = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="dzwiekpunktu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+[connection signal="body_entered" from="Ściana lewa" to="." method="_on_ciana_lewa_body_entered"]
+[connection signal="body_entered" from="Ściana prawa" to="." method="_on_ciana_prawa_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

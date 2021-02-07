@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://wyborstolu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/menu - tło.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 1 )
+
+[node name="wyborstolu" type="Control"]
+margin_right = 1505.0
+margin_bottom = 746.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="normalna" type="Button" parent="."]
+margin_left = 541.783
+margin_top = 296.376
+margin_right = 912.783
+margin_bottom = 373.376
+custom_fonts/font = SubResource( 1 )
+text = "Normalny stół"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mniejsza" type="Button" parent="."]
+margin_left = 541.783
+margin_top = 426.631
+margin_right = 911.783
+margin_bottom = 512.631
+custom_fonts/font = SubResource( 2 )
+text = "Mniejszy stół"
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 757.098, 383.449 )
+scale = Vector2( 0.299145, 0.224952 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0101
+margin_top = 33.0
+margin_right = 1457.01
+margin_bottom = 274.0
+custom_fonts/font = SubResource( 3 )
+text = "Wybierz stół, na którym chcesz grać. Normalny stól ma
+wymiary 1500 na 750, mniejszy stół to 1000 na 400. Na
+mniejszym stole piłka porusza się szybciej."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="normalna" to="." method="_on_normalna_pressed"]
+[connection signal="pressed" from="mniejsza" to="." method="_on_mniejsza_pressed"]

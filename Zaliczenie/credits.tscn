@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://credits.gd" type="Script" id=2]
+[ext_resource path="res://Assets/menu - tło.jpg" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+margin_right = 1499.0
+margin_bottom = 752.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1504.0
+margin_bottom = 754.0
+custom_fonts/font = SubResource( 1 )
+text = "Projekt powstał dzięki wiedzy uzyskanej na 
+zajęciach z Projektowania gier wideo
+oraz dzięki tutorialowi \"Learn Godot by Creating Pong\"
+autorstwa Clear Code
+(https://www.youtube.com/watch?v=kr1BoEbuveI).
+Assety pochodzą z wyżej wymienionego tutoriala
+oraz https://arcade.itch.io/minibyte (czcionka)
+https://www.rawpixel.com/image/2593817/
+free-photo-image-black-background-black-black-texture (tło).
+
+
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 499.23
+margin_top = 573.981
+margin_right = 1024.23
+margin_bottom = 694.981
+custom_fonts/font = SubResource( 2 )
+text = "Powrót"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 766.032, 385.536 )
+scale = Vector2( 0.316619, 0.251532 )
+texture = ExtResource( 3 )
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

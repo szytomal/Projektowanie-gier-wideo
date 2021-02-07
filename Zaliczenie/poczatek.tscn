@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://poczatek.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Minibyte.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/menu - tło.jpg" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 190
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+margin_right = 1498.0
+margin_bottom = 753.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nowa gra" type="Button" parent="."]
+margin_left = 548.0
+margin_top = 380.0
+margin_right = 876.0
+margin_bottom = 450.0
+custom_fonts/font = SubResource( 1 )
+text = "Nowa gra"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="."]
+margin_left = 548.0
+margin_top = 500.0
+margin_right = 876.0
+margin_bottom = 570.0
+custom_fonts/font = SubResource( 2 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 445.0
+margin_top = 150.0
+margin_right = 1030.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 3 )
+text = "Witaj! Podaj swoje imię:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Imie" type="LineEdit" parent="."]
+margin_left = 548.0
+margin_top = 260.0
+margin_right = 876.0
+margin_bottom = 330.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+max_length = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_top = -24.5407
+margin_right = 1497.0
+margin_bottom = 130.459
+custom_fonts/font = SubResource( 5 )
+text = "PONG 2D"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 756.171, 376.052 )
+scale = Vector2( 0.301015, 0.222945 )
+texture = ExtResource( 4 )
+[connection signal="pressed" from="Nowa gra" to="." method="_on_Nowa_gra_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="text_entered" from="Imie" to="." method="_on_Imie_text_entered"]
